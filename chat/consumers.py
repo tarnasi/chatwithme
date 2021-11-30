@@ -3,10 +3,6 @@ import json
 
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
-from faker import Faker
-
-fake = Faker()
-
 
 class ChatConsumer(AsyncJsonWebsocketConsumer):
     groups = ['broadcast']
