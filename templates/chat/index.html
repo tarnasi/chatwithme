@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat With Me</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #E1F5FE">
+
+<header class="mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ChatWithMe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center align-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card-header text-white py-5 mb-4 shadow-sm" style="background-color: #0adf8b;">
+                <h1 class="mb-0 text-center">Chat With Me</h1>
+            </div>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="room_name">Room Name <span class="text-danger">*</span></label>
+                        <input id="room_name" type="text" class="form-control my-3"
+                               placeholder="Room Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username <span class="text-danger">*</span></label>
+                        <input id="username" type="text" class="form-control my-3" placeholder="Username" />
+                        <button id="btn-submit" class="btn btn-outline-primary my-3">Go To Chat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="position-fixed bottom-0 bg-info text-white py-2 w-100">
+    <p class="text-center p-0 m-0">reserve on 2021 &copy; by shahriyar tarnasi</p>
+</footer>
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.onload = (event) => {
+        let btn_submit = document.getElementById('btn-submit')
+        btn_submit.addEventListener('click', (event) => {
+            let room_name = document.getElementById('room_name').value
+            let username = document.getElementById('username').value
+
+            if (room_name === '' || username === '') {
+                return alert('Please Fill Requirement fields')
+            }
+
+            window.location.href = window.location.protocol +
+                '//' + window.location.host + '/' + room_name + "?username=" + username
+        })
+    }
+</script>
+</body>
+</html>
