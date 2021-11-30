@@ -4,7 +4,7 @@ let message = document.getElementById('message')
 const roomName = JSON.parse(document.getElementById('room-name').textContent)
 const username = JSON.parse(document.getElementById('username').textContent)
 
-const ws_endpoint = new WebSocket('ws://'+ window.location.host);
+const ws_endpoint = 'ws://'+ window.location.host + "/chat"
 let ws = null;
 
 const onMessageEvent = (text_message) => {
