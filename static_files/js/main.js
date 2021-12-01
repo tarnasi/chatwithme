@@ -1,10 +1,11 @@
 let message_list = document.getElementById('message-list')
 let message = document.getElementById('message')
+let btnSend = document.getElementById('send_text')
 
 const roomName = JSON.parse(document.getElementById('room-name').textContent)
 const username = JSON.parse(document.getElementById('username').textContent)
 
-let ws_endpoint = "ws://localhost:8000/chat"
+const ws_endpoint = 'ws://'+ window.location.host + "/chat"
 let ws = null;
 
 const onMessageEvent = (text_message) => {
@@ -39,14 +40,13 @@ ws.addEventListener('close', (event) => {
 ws.addEventListener('message', onMessageEvent)
 
 // user write something
-message.addEventListener("keypress", (e) => {
-    let message = JSON.stringify({
-        'text': e.target.value,
+btnSend.addEventListener("click", (e) => {
+    console.log("wait for send a text....");
+    let data = JSON.stringify({
+        'text': message.value,
         'username': username
     })
-    if (e.code === 'Enter') {
-        sendMessage(ws, message)
-    }
+    sendMessage(ws, data)
 })
 
 function sendMessage(ws, message) {
@@ -55,3 +55,4 @@ function sendMessage(ws, message) {
     }
     ws.send(message)
 }
+
